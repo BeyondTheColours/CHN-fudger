@@ -7,10 +7,38 @@ solvents = {
 	"pentane" : [5, 12, 0, 72.151]
 }
 
-c = 49
-h = 58
-n = 2
-mr = 801.60
+def get_atom_count(atom):
+	retry = True
+	print_message = False
+	while retry:
+		if print_message:
+			print(f"Enter a positive whole number of \'{atom}\' atoms.")
+			print(f"(\'{res}\' was entered)")
+			print_message = False
+			
+		else:
+			pass
+			
+		try:
+			print(f"Enter the number of {} atoms: ")
+			res = input("--> ")
+			res = int(res)
+			if res != -res:
+				print_message = True
+			else:
+				retry = False
+			os.system('clear')
+		
+		except ValueError:
+			print_message = True
+			os.system('clear')
+	
+	return res
+
+c = get_atom_count("C")
+h = get_atom_count("H")
+n = get_atom_count("N")
+mr = 801.60 #need to add a modified get_atom_count to get the Mr as a float.
 
 os.system('clear')
 
