@@ -20,10 +20,10 @@ def get_atom_count(atom):
 			pass
 			
 		try:
-			print(f"Enter the number of {} atoms: ")
+			print(f"Enter the number of {atom} atoms: ")
 			res = input("--> ")
 			res = int(res)
-			if res != -res:
+			if res < -res:
 				print_message = True
 			else:
 				retry = False
