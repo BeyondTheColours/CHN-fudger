@@ -1,11 +1,37 @@
 import os
 
+os.system('clear')
 solvents = {
 	"toluene" : [7, 8, 0, 92.141],
 	"THF" : [4, 8, 0, 72.11],
 	"hexane" : [6, 14, 0, 86.178],
 	"pentane" : [5, 12, 0, 72.151]
 }
+mr = 0
+retry = True
+print_message = False
+while retry:
+	if print_message:
+		print(f"Enter the molecular weight in g/mol.")
+		print(f"(\'{mr}\' was entered)")
+		print_message = False
+		
+	else:
+		pass
+		
+	try:
+		print(f"Enter the molecular weight: ")
+		mr = input("--> ")
+		mr = float(mr)
+		if mr < -mr:
+			print_message = True
+		else:
+			retry = False
+		os.system('clear')
+	
+	except ValueError:
+		print_message = True
+		os.system('clear')
 
 def get_atom_count(atom):
 	retry = True
@@ -34,11 +60,9 @@ def get_atom_count(atom):
 			os.system('clear')
 	
 	return res
-
 c = get_atom_count("C")
 h = get_atom_count("H")
 n = get_atom_count("N")
-mr = 801.60 #need to add a modified get_atom_count to get the Mr as a float.
 
 os.system('clear')
 
